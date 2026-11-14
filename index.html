@@ -66,7 +66,10 @@
   @media print {
     .sticky, .admin-bar, .admin-panel, .sec-head::after, .topbar, .del-btn, .add-row { display:none !important; }
     body { background:#fff; padding:0; }
-    tr.chosen:not(.has-qty) { display:none; }
+    tr.item:not(.chosen) { display:none; }
+section.sec:not(:has(tr.chosen)) { display:none; }
+.sec-body { display:block !important; }
+
     section.sec { border:none; page-break-inside:avoid; }
   }
 </style>
