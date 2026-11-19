@@ -83,7 +83,7 @@ section.sec:not(:has(tr.chosen)) { display:none; }
     <span>🔐 Вход для администратора:</span>
     <input type="password" id="passInput" placeholder="пароль">
     <button class="btn ghost" onclick="tryLogin()">Войти</button>
-  </div>
+  </div><button id="installBtn" type="button" style="margin: 2px 0px 10px; display: inline-flex; align-items: center; gap: 5px; background: rgb(11, 92, 171); color: rgb(255, 255, 255); border: none; border-radius: 8px; padding: 8px 12px; font-size: 13px; cursor: pointer;"/button>
 
   <div class="admin-panel" id="adminPanel" style="display: none;">
     <h3>⚙️ Панель администратора</h3>
@@ -111,186 +111,174 @@ section.sec:not(:has(tr.chosen)) { display:none; }
       <div class="sec-body" style="display:none"><table>
       <thead><tr><th>Наименование</th><th>ед.</th><th class="num">кол-во</th><th class="num">цена, ₽</th><th class="num">сумма, ₽</th><th></th></tr></thead>
       <tbody id="tb0"><tr class="item" id="row_i0">
-      <td class="name"><input type="text" value="Кабель UTP кат. 5e, прокладка открыто" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,0,'n',this.value)"></td>
+      <td class="name"><input type="text" value="Кабель UTP прокладка открыто" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,0,'n',this.value)"></td>
       <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,0,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i0" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="55" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,0,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="180" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,0,'p',this.value)"></td>
       <td class="sum num" id="sum_i0">—</td>
       <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,0)">✕</button></td></tr><tr class="item" id="row_i1">
-      <td class="name"><input type="text" value="Кабель UTP кат. 5e, прокладка в гофре" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,1,'n',this.value)"></td>
+      <td class="name"><input type="text" value="Кабель UTP прокладка в гофре" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,1,'n',this.value)"></td>
       <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,1,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i1" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="70" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,1,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="200" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,1,'p',this.value)"></td>
       <td class="sum num" id="sum_i1">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,1)">✕</button></td></tr><tr class="item" id="row_i2">
-      <td class="name"><input type="text" value="Кабель UTP кат. 6, прокладка" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,2,'n',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,1)">✕</button></td></tr><tr class="item" id="row_i3">
+      <td class="name"><input type="text" value="Кабель-канал 25×16, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,2,'n',this.value)"></td>
       <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,2,'u',this.value)"></td>
-      <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i2" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="75" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,2,'p',this.value)"></td>
-      <td class="sum num" id="sum_i2">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,2)">✕</button></td></tr><tr class="item" id="row_i3">
-      <td class="name"><input type="text" value="Кабель-канал 25×16, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,3,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,3,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i3" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="150" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,3,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="150" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,2,'p',this.value)"></td>
       <td class="sum num" id="sum_i3">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,3)">✕</button></td></tr><tr class="item" id="row_i4">
-      <td class="name"><input type="text" value="Кабель-канал 40×25, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,4,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,4,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,2)">✕</button></td></tr><tr class="item" id="row_i4">
+      <td class="name"><input type="text" value="Кабель-канал 40×25, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,3,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,3,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i4" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="200" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,4,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="200" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,3,'p',this.value)"></td>
       <td class="sum num" id="sum_i4">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,4)">✕</button></td></tr><tr class="item" id="row_i5">
-      <td class="name"><input type="text" value="Кабель-канал 60×40, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,5,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,5,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,3)">✕</button></td></tr><tr class="item" id="row_i5">
+      <td class="name"><input type="text" value="Кабель-канал 60×40, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,4,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,4,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i5" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="260" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,5,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="260" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,4,'p',this.value)"></td>
       <td class="sum num" id="sum_i5">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,5)">✕</button></td></tr><tr class="item" id="row_i6">
-      <td class="name"><input type="text" value="Гофротруба ПВХ 16 мм с кабелем, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,6,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,6,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,4)">✕</button></td></tr><tr class="item" id="row_i6">
+      <td class="name"><input type="text" value="Гофротруба ПВХ 16 мм с кабелем, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,5,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,5,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i6" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="90" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,6,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="250" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,5,'p',this.value)"></td>
       <td class="sum num" id="sum_i6">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,6)">✕</button></td></tr><tr class="item" id="row_i7">
-      <td class="name"><input type="text" value="Кабель в штробе, штробление по бетону" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,7,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,7,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,5)">✕</button></td></tr><tr class="item" id="row_i7">
+      <td class="name"><input type="text" value="Кабель в штробе, штробление по бетону" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,6,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,6,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i7" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="350" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,7,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="450" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,6,'p',this.value)"></td>
       <td class="sum num" id="sum_i7">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,7)">✕</button></td></tr><tr class="item" id="row_i8">
-      <td class="name"><input type="text" value="Лоток металлический 100×50, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,8,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,8,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,6)">✕</button></td></tr><tr class="item" id="row_i8">
+      <td class="name"><input type="text" value="Лоток металлический 100×50, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,7,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,7,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i8" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="320" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,8,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="400" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,7,'p',this.value)"></td>
       <td class="sum num" id="sum_i8">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,8)">✕</button></td></tr><tr class="item" id="row_i9">
-      <td class="name"><input type="text" value="Розетка RJ45, установка (внутр. монтаж)" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,9,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,9,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,7)">✕</button></td></tr><tr class="item" id="row_i9">
+      <td class="name"><input type="text" value="Розетка RJ45, установка (внутр. монтаж)" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,8,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,8,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i9" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="450" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,9,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="450" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,8,'p',this.value)"></td>
       <td class="sum num" id="sum_i9">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,9)">✕</button></td></tr><tr class="item" id="row_i10">
-      <td class="name"><input type="text" value="Розетка RJ45, установка (наружн. монтаж)" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,10,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,10,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,8)">✕</button></td></tr><tr class="item" id="row_i10">
+      <td class="name"><input type="text" value="Обжим RJ45, " style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,9,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,9,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i10" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="350" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,10,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="250" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,9,'p',this.value)"></td>
       <td class="sum num" id="sum_i10">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,10)">✕</button></td></tr><tr class="item" id="row_i11">
-      <td class="name"><input type="text" value="Патч-панель 24 порта, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,11,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,11,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,9)">✕</button></td></tr><tr class="item" id="row_i11">
+      <td class="name"><input type="text" value="Патч-панель 24 порта, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,10,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,10,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i11" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="1500" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,11,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="1500" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,10,'p',this.value)"></td>
       <td class="sum num" id="sum_i11">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,11)">✕</button></td></tr><tr class="item" id="row_i12">
-      <td class="name"><input type="text" value="Коммутация порта патч-панели (кримпование)" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,12,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,12,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,10)">✕</button></td></tr><tr class="item" id="row_i12">
+      <td class="name"><input type="text" value="Коммутация порта патч-панели (кримпование)" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,11,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,11,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i12" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="150" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,12,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="150" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,11,'p',this.value)"></td>
       <td class="sum num" id="sum_i12">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,12)">✕</button></td></tr><tr class="item" id="row_i13">
-      <td class="name"><input type="text" value="Шкаф/стойка 19 слаботочный, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,13,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,13,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,11)">✕</button></td></tr><tr class="item" id="row_i13">
+      <td class="name"><input type="text" value="Шкаф/стойка 19 слаботочный, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,12,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,12,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i13" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="3000" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,13,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="3000" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,12,'p',this.value)"></td>
       <td class="sum num" id="sum_i13">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,13)">✕</button></td></tr><tr class="item" id="row_i14">
-      <td class="name"><input type="text" value="Свитч (коммутатор), монтаж и настройка" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,14,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,14,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,12)">✕</button></td></tr><tr class="item" id="row_i14">
+      <td class="name"><input type="text" value="Свитч (коммутатор), монтаж и настройка" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,13,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,13,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i14" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="1200" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,14,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="1200" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,13,'p',this.value)"></td>
       <td class="sum num" id="sum_i14">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,14)">✕</button></td></tr><tr class="item" id="row_i15">
-      <td class="name"><input type="text" value="Сертификация линии LAN (тестер)" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,15,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="порт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,15,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,13)">✕</button></td></tr><tr class="item" id="row_i15">
+      <td class="name"><input type="text" value="Сертификация линии LAN (тестер)" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,14,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="порт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,14,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i15" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="350" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,15,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="350" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,14,'p',this.value)"></td>
       <td class="sum num" id="sum_i15">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,15)">✕</button></td></tr><tr class="item" id="row_i16">
-      <td class="name"><input type="text" value="Кросс, установка и расшивка" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,16,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,16,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,14)">✕</button></td></tr><tr class="item" id="row_i16">
+      <td class="name"><input type="text" value="Кросс, установка и расшивка" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(0,15,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(0,15,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i16" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="800" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,16,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="800" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(0,15,'p',this.value)"></td>
       <td class="sum num" id="sum_i16">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,16)">✕</button></td></tr><tr class="add-row"><td colspan="6">
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(0,15)">✕</button></td></tr><tr class="add-row"><td colspan="6">
       <div style="display:flex;gap:6px;flex-wrap:wrap">
         <input type="text" id="nn0" placeholder="Название позиции" style="flex:2;min-width:140px">
         <input type="text" id="nu0" placeholder="ед." style="width:52px">
         <input type="number" id="np0" placeholder="цена" style="width:80px">
         <button class="add-btn" onclick="addItem(0)">+ Добавить</button>
       </div></td></tr></tbody></table></div></section><section class="sec"><div class="sec-head" onclick="toggleSec(1,this)">
-      <h2>▸ Видеонаблюдение</h2><span class="sec-sum" id="secsum1">0 ₽</span></div>
-      <div class="sec-body" style="display:none"><table>
+      <h2>▾ Видеонаблюдение</h2><span class="sec-sum" id="secsum1">0 ₽</span></div>
+      <div class="sec-body" style=""><table>
       <thead><tr><th>Наименование</th><th>ед.</th><th class="num">кол-во</th><th class="num">цена, ₽</th><th class="num">сумма, ₽</th><th></th></tr></thead>
       <tbody id="tb1"><tr class="item" id="row_i17">
-      <td class="name"><input type="text" value="Камера IP, монтаж на стене" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,0,'n',this.value)"></td>
+      <td class="name"><input type="text" value="Камера IP, монтаж внутри помещения" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,0,'n',this.value)"></td>
       <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,0,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i17" oninput="onQty(this)"></td>
       <td class="price num"><input type="number" min="0" step="any" value="2500" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,0,'p',this.value)"></td>
       <td class="sum num" id="sum_i17">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,0)">✕</button></td></tr><tr class="item" id="row_i18">
-      <td class="name"><input type="text" value="Камера IP, монтаж на потолке" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,1,'n',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,0)">✕</button></td></tr><tr class="item" id="row_i19">
+      <td class="name"><input type="text" value="Камера на улице (антивандальная), монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,1,'n',this.value)"></td>
       <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,1,'u',this.value)"></td>
-      <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i18" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="2500" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,1,'p',this.value)"></td>
-      <td class="sum num" id="sum_i18">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,1)">✕</button></td></tr><tr class="item" id="row_i19">
-      <td class="name"><input type="text" value="Камера на улице (антивандальная), монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,2,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,2,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i19" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="3500" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,2,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="3500" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,1,'p',this.value)"></td>
       <td class="sum num" id="sum_i19">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,2)">✕</button></td></tr><tr class="item" id="row_i20">
-      <td class="name"><input type="text" value="Кабель КВК 2×0,5 (видео+питание), прокладка" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,3,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,3,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,1)">✕</button></td></tr><tr class="item" id="row_i20">
+      <td class="name"><input type="text" value="Кабель КВК 2×0,5 (видео+питание), прокладка" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,2,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,2,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i20" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="80" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,3,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="80" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,2,'p',this.value)"></td>
       <td class="sum num" id="sum_i20">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,3)">✕</button></td></tr><tr class="item" id="row_i21">
-      <td class="name"><input type="text" value="Витая пара к камере, прокладка" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,4,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,4,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,2)">✕</button></td></tr><tr class="item" id="row_i21">
+      <td class="name"><input type="text" value="Витая пара к камере, прокладка" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,3,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="м" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,3,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i21" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="70" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,4,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="70" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,3,'p',this.value)"></td>
       <td class="sum num" id="sum_i21">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,4)">✕</button></td></tr><tr class="item" id="row_i22">
-      <td class="name"><input type="text" value="Видеорегистратор, монтаж и подключение" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,5,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,5,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,3)">✕</button></td></tr><tr class="item" id="row_i22">
+      <td class="name"><input type="text" value="Видеорегистратор, монтаж и подключение" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,4,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,4,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i22" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="2500" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,5,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="2500" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,4,'p',this.value)"></td>
       <td class="sum num" id="sum_i22">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,5)">✕</button></td></tr><tr class="item" id="row_i23">
-      <td class="name"><input type="text" value="Жёсткий диск в регистратор, установка" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,6,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,6,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,4)">✕</button></td></tr><tr class="item" id="row_i23">
+      <td class="name"><input type="text" value="Жёсткий диск в регистратор, установка" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,5,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,5,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i23" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="800" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,6,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="800" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,5,'p',this.value)"></td>
       <td class="sum num" id="sum_i23">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,6)">✕</button></td></tr><tr class="item" id="row_i24">
-      <td class="name"><input type="text" value="Блок питания камеры, установка" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,7,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,7,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,5)">✕</button></td></tr><tr class="item" id="row_i24">
+      <td class="name"><input type="text" value="Блок питания камеры, установка" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,6,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,6,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i24" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="600" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,7,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="600" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,6,'p',this.value)"></td>
       <td class="sum num" id="sum_i24">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,7)">✕</button></td></tr><tr class="item" id="row_i25">
-      <td class="name"><input type="text" value="Настройка удалённого доступа (облако/P2P)" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,8,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,8,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,6)">✕</button></td></tr><tr class="item" id="row_i25">
+      <td class="name"><input type="text" value="Настройка удалённого доступа (облако/P2P)" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,7,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="шт" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,7,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i25" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="1500" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,8,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="1500" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,7,'p',this.value)"></td>
       <td class="sum num" id="sum_i25">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,8)">✕</button></td></tr><tr class="item" id="row_i26">
-      <td class="name"><input type="text" value="Настройка архива и камер (пусконаладка)" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,9,'n',this.value)"></td>
-      <td class="unit"><input type="text" value="система" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,9,'u',this.value)"></td>
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,7)">✕</button></td></tr><tr class="item" id="row_i26">
+      <td class="name"><input type="text" value="Настройка архива и камер (пусконаладка)" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(1,8,'n',this.value)"></td>
+      <td class="unit"><input type="text" value="система" style="width:52px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:center" onchange="editItem(1,8,'u',this.value)"></td>
       <td class="qty"><input type="number" min="0" step="any" inputmode="decimal" placeholder="0" data-iid="i26" oninput="onQty(this)"></td>
-      <td class="price num"><input type="number" min="0" step="any" value="3000" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,9,'p',this.value)"></td>
+      <td class="price num"><input type="number" min="0" step="any" value="3000" style="width:80px;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px;text-align:right" onchange="editItem(1,8,'p',this.value)"></td>
       <td class="sum num" id="sum_i26">—</td>
-      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,9)">✕</button></td></tr><tr class="add-row"><td colspan="6">
+      <td><button class="del-btn" title="Удалить позицию" onclick="delItem(1,8)">✕</button></td></tr><tr class="add-row"><td colspan="6">
       <div style="display:flex;gap:6px;flex-wrap:wrap">
         <input type="text" id="nn1" placeholder="Название позиции" style="flex:2;min-width:140px">
         <input type="text" id="nu1" placeholder="ед." style="width:52px">
         <input type="number" id="np1" placeholder="цена" style="width:80px">
         <button class="add-btn" onclick="addItem(1)">+ Добавить</button>
       </div></td></tr></tbody></table></div></section><section class="sec"><div class="sec-head" onclick="toggleSec(2,this)">
-      <h2>▸ СКУД — контроль доступа</h2><span class="sec-sum" id="secsum2">0 ₽</span></div>
-      <div class="sec-body" style="display:none"><table>
+      <h2>▾ СКУД — контроль доступа</h2><span class="sec-sum" id="secsum2">0 ₽</span></div>
+      <div class="sec-body" style=""><table>
       <thead><tr><th>Наименование</th><th>ед.</th><th class="num">кол-во</th><th class="num">цена, ₽</th><th class="num">сумма, ₽</th><th></th></tr></thead>
       <tbody id="tb2"><tr class="item" id="row_i27">
       <td class="name"><input type="text" value="Контроллер СКУД, монтаж и подключение" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(2,0,'n',this.value)"></td>
@@ -359,8 +347,8 @@ section.sec:not(:has(tr.chosen)) { display:none; }
         <input type="number" id="np2" placeholder="цена" style="width:80px">
         <button class="add-btn" onclick="addItem(2)">+ Добавить</button>
       </div></td></tr></tbody></table></div></section><section class="sec"><div class="sec-head" onclick="toggleSec(3,this)">
-      <h2>▸ СОУЭ — оповещение и управление эвакуацией</h2><span class="sec-sum" id="secsum3">0 ₽</span></div>
-      <div class="sec-body" style="display:none"><table>
+      <h2>▾ СОУЭ — оповещение и управление эвакуацией</h2><span class="sec-sum" id="secsum3">0 ₽</span></div>
+      <div class="sec-body" style=""><table>
       <thead><tr><th>Наименование</th><th>ед.</th><th class="num">кол-во</th><th class="num">цена, ₽</th><th class="num">сумма, ₽</th><th></th></tr></thead>
       <tbody id="tb3"><tr class="item" id="row_i37">
       <td class="name"><input type="text" value="Оповещатель звуковой, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(3,0,'n',this.value)"></td>
@@ -417,8 +405,8 @@ section.sec:not(:has(tr.chosen)) { display:none; }
         <input type="number" id="np3" placeholder="цена" style="width:80px">
         <button class="add-btn" onclick="addItem(3)">+ Добавить</button>
       </div></td></tr></tbody></table></div></section><section class="sec"><div class="sec-head" onclick="toggleSec(4,this)">
-      <h2>▸ Пожарная сигнализация (АПС)</h2><span class="sec-sum" id="secsum4">0 ₽</span></div>
-      <div class="sec-body" style="display:none"><table>
+      <h2>▾ Пожарная сигнализация (АПС)</h2><span class="sec-sum" id="secsum4">0 ₽</span></div>
+      <div class="sec-body" style=""><table>
       <thead><tr><th>Наименование</th><th>ед.</th><th class="num">кол-во</th><th class="num">цена, ₽</th><th class="num">сумма, ₽</th><th></th></tr></thead>
       <tbody id="tb4"><tr class="item" id="row_i45">
       <td class="name"><input type="text" value="Извещатель дымовой, монтаж" style="width:100%;border:1px solid #ccd6df;border-radius:5px;padding:4px;font-size:13px" onchange="editItem(4,0,'n',this.value)"></td>
@@ -673,19 +661,14 @@ section.sec:not(:has(tr.chosen)) { display:none; }
    "name": "СКС — структурированные кабельные системы",
    "items": [
     {
-     "n": "Кабель UTP кат. 5e, прокладка открыто",
+     "n": "Кабель UTP прокладка открыто",
      "u": "м",
-     "p": 55
+     "p": 180
     },
     {
-     "n": "Кабель UTP кат. 5e, прокладка в гофре",
+     "n": "Кабель UTP прокладка в гофре",
      "u": "м",
-     "p": 70
-    },
-    {
-     "n": "Кабель UTP кат. 6, прокладка",
-     "u": "м",
-     "p": 75
+     "p": 200
     },
     {
      "n": "Кабель-канал 25×16, монтаж",
@@ -705,17 +688,17 @@ section.sec:not(:has(tr.chosen)) { display:none; }
     {
      "n": "Гофротруба ПВХ 16 мм с кабелем, монтаж",
      "u": "м",
-     "p": 90
+     "p": 250
     },
     {
      "n": "Кабель в штробе, штробление по бетону",
      "u": "м",
-     "p": 350
+     "p": 450
     },
     {
      "n": "Лоток металлический 100×50, монтаж",
      "u": "м",
-     "p": 320
+     "p": 400
     },
     {
      "n": "Розетка RJ45, установка (внутр. монтаж)",
@@ -723,9 +706,9 @@ section.sec:not(:has(tr.chosen)) { display:none; }
      "p": 450
     },
     {
-     "n": "Розетка RJ45, установка (наружн. монтаж)",
+     "n": "Обжим RJ45, ",
      "u": "шт",
-     "p": 350
+     "p": 250
     },
     {
      "n": "Патч-панель 24 порта, монтаж",
@@ -763,29 +746,24 @@ section.sec:not(:has(tr.chosen)) { display:none; }
    "name": "Видеонаблюдение",
    "items": [
     {
-     "n": "Камера IP, монтаж на стене",
+     "n": "Камера, монтаж внутри помещения",
      "u": "шт",
      "p": 2500
     },
     {
-     "n": "Камера IP, монтаж на потолке",
-     "u": "шт",
-     "p": 2500
-    },
-    {
-     "n": "Камера на улице (антивандальная), монтаж",
+     "n": "Камера на улице, монтаж",
      "u": "шт",
      "p": 3500
     },
     {
      "n": "Кабель КВК 2×0,5 (видео+питание), прокладка",
      "u": "м",
-     "p": 80
+     "p": 180
     },
     {
      "n": "Витая пара к камере, прокладка",
      "u": "м",
-     "p": 70
+     "p": 180
     },
     {
      "n": "Видеорегистратор, монтаж и подключение",
@@ -795,7 +773,7 @@ section.sec:not(:has(tr.chosen)) { display:none; }
     {
      "n": "Жёсткий диск в регистратор, установка",
      "u": "шт",
-     "p": 800
+     "p": 400
     },
     {
      "n": "Блок питания камеры, установка",
@@ -808,7 +786,7 @@ section.sec:not(:has(tr.chosen)) { display:none; }
      "p": 1500
     },
     {
-     "n": "Настройка архива и камер (пусконаладка)",
+     "n": "Юстировка (пусконаладка)",
      "u": "система",
      "p": 3000
     }
@@ -1425,4 +1403,5 @@ render();
   });
 })();
 </script>
+
 </body></html>
